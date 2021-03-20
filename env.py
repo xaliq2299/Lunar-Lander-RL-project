@@ -48,7 +48,7 @@ class Agent:
 
     def get_action_smart_decision(self, observation):
         angle = observation[4]*57
-        print("----y: ", observation[1])
+        #print("----y: ", observation[1])
         rotate_right = [2,3]
         rotate_left = [1,2]
         
@@ -86,20 +86,31 @@ print("Action space: ", env.action_space)
 #initiazlize Agent
 agent = Agent(env)
 
-observation = env.reset()
 
-#looping
-for i_episode in range(1000):
-      
-    action = agent.get_action_smart_decision(observation)
-    
-    observation, reward, done, info = env.step(action)
-    env.render()
-    
-    #sleep to be able to see
-    time.sleep(0.05)
 
-    if done:
-        print("Episode finished ")
-        break
+nb_episodes = 100
+total_reward = 0
+
+for i in range(nb_episodes):
+    observation = env.reset()
+
+    #looping
+    for i_episode in range(500):
+        
+        action = agent.get_action_smart_decision(observation)
+        
+        observation, reward, done, info = env.step(action)
+        #env.render()
+        
+        #sleep to be able to see
+        #time.sleep(0.05)
+
+        if done:
+            total_reward += reward
+            break
+
+
 env.close()
+
+print("Nb of episodes ", nb_episodes)
+print("Average reward : ", total_reward/nb_episodes)
