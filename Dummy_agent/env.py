@@ -88,22 +88,22 @@ agent = Agent(env)
 
 
 
-nb_episodes = 100
+nb_episodes = 10
 total_reward = 0
 
 for i in range(nb_episodes):
     observation = env.reset()
 
     #looping
-    for i_episode in range(500):
+    for i_episode in range(300):
         
         action = agent.get_action_smart_decision(observation)
         
         observation, reward, done, info = env.step(action)
-        #env.render()
+        env.render()
         
         #sleep to be able to see
-        #time.sleep(0.05)
+        time.sleep(0.025)
 
         if done:
             total_reward += reward
