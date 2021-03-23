@@ -95,11 +95,13 @@ for i in range(nb_episodes):
     observation = env.reset()
 
     #looping
+    episode_reward = 0
     for i_episode in range(300):
         
         action = agent.get_action_smart_decision(observation)
         
         observation, reward, done, info = env.step(action)
+        episode_reward += reward
         env.render()
         
         #sleep to be able to see
@@ -108,6 +110,7 @@ for i in range(nb_episodes):
         if done:
             total_reward += reward
             break
+    print("Reward for episode", i+1, "is", episode_reward)
 
 
 env.close()
