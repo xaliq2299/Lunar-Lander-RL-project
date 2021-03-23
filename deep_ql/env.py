@@ -30,6 +30,7 @@ def test_model(filename, nbEpisodes=10, render=False):
     counter = 0
 
     for _ in range(nbEpisodes):
+        one_episode_reward = 0
         state = env.reset()
         done = False
         state = np.reshape(state, (1, 8))
@@ -40,7 +41,8 @@ def test_model(filename, nbEpisodes=10, render=False):
             next_state = np.reshape(next_state, (1, 8))
             state = next_state
             episode_reward += reward
-        print("Episode ", counter+1)
+            one_episode_reward += reward
+        print("Reward for episode ", counter+1, "is", one_episode_reward)
         counter += 1
     print('Average Reward:', episode_reward / nbEpisodes)
 
