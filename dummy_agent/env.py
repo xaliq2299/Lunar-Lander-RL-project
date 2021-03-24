@@ -1,18 +1,7 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Tue Feb 16 12:36:22 2021
-
-@author: ayham
-"""
-
 import gym
 from gym import envs
 import random
 import time
-
-#All Envs in gym
-#print(envs.registry.all())
 
 #--------------------------------------------LunarLander
 #Action space:
