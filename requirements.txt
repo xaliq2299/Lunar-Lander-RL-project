@@ -4,6 +4,6 @@ torch
 numpy==1.19.5
 Keras
 gym
-tensorflow==2.4.1
+tensorflow==2.5.0
 Keras==2.4.3
 Box2D==2.3.10
